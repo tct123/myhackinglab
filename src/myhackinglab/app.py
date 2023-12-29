@@ -19,6 +19,7 @@ class MyHackingLab(toga.App):
         show the main window.
         """
         main_box = toga.Box()
+        main_box.style.direction = "column"
         
         self.main_window = toga.MainWindow(title=self.formal_name)
         self.main_window.content = main_box
