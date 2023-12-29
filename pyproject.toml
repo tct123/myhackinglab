@@ -22,6 +22,7 @@ test_sources = [
 ]
 
 requires = [
+    "phonenumbers"
 ]
 test_requires = [
     "pytest",

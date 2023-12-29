@@ -4,6 +4,7 @@ Hacking Application
 import toga
 from toga.style import Pack
 from toga.style.pack import COLUMN, ROW
+import phonenumbers as pn
 
 
 class MyHackingLab(toga.App):
@@ -17,6 +18,8 @@ class MyHackingLab(toga.App):
         show the main window.
         """
         main_box = toga.Box()
+        if toga:
+            pass
 
         self.main_window = toga.MainWindow(title=self.formal_name)
         self.main_window.content = main_box
