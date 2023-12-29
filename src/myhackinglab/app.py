@@ -25,7 +25,12 @@ class MyHackingLab(toga.App):
         self.main_window.show()
 
         if current_platform == "android" or current_platform == "iOS":
-            self.main_window.error_dialog(title="Error", message="Platform is not supported.", on_result=self.main_window.close)
+            self.main_window.error_dialog(title="Error", message="Platform is not supported.", on_result=self.leave)
+        else:
+            btn = toga.Button(text="exit", on_press=self.leave)
+            main_box.add(btn)
+    def leave(self):
+        quit()
 
 
 def main():
