@@ -4,6 +4,7 @@ Hacking Application
 import toga
 from toga.style import Pack
 from toga.style.pack import COLUMN, ROW
+from toga.platform import current_platform
 import phonenumbers as pn
 
 
@@ -18,12 +19,13 @@ class MyHackingLab(toga.App):
         show the main window.
         """
         main_box = toga.Box()
-        if toga:
-            pass
-
+        
         self.main_window = toga.MainWindow(title=self.formal_name)
         self.main_window.content = main_box
         self.main_window.show()
+
+        if current_platform == "android" or current_platform == "iOS":
+            self.main_window.error_dialog(title="Error", message="Platform is not supported.", on_result=self.main_window.close)
 
 
 def main():
