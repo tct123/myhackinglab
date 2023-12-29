@@ -24,13 +24,15 @@ class MyHackingLab(toga.App):
         self.main_window.content = main_box
         self.main_window.show()
 
-        if current_platform == "android" or current_platform == "iOS":
-            self.main_window.error_dialog(title="Error", message="Platform is not supported.", on_result=self.leave)
-        else:
-            btn = toga.Button(text="exit", on_press=self.leave)
-            main_box.add(btn)
-    def leave(self):
-        quit()
+        btn1 = toga.Button(text="Phonenumber Location", on_press=self.btn_phonenumber_location)
+        main_box.add(btn1)
+    def leave(self, widget):
+        self.exit()
+    def btn_phonenumber_location(self,widget):
+        box = toga.Box()
+        self.window = toga.Window(title="Phonenumber Location")
+        self.window.content = box
+        self.window.show()
 
 
 def main():
