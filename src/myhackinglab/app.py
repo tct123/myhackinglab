@@ -6,6 +6,7 @@ from toga.style import Pack
 from toga.style.pack import COLUMN, ROW
 from toga.platform import current_platform
 import phonenumbers as pn
+from phonenumbers import geocoder
 
 
 class MyHackingLab(toga.App):
@@ -47,19 +48,24 @@ class MyHackingLab(toga.App):
     def phonenumber_data(self):
         try:
             data = pn.parse(self.number.value, None)
-            print(data)
-            return data
+            city = geocoder.description_for_number(data, "en")
+            return data, city
         except:
             data = "Failed!!!"
-            return data
+            city = data
+            return data, city
 
     def phonenumber_screen(self, widget):
         box = toga.Box()
+        box.style.direction = "column"
         window = toga.Window("Phonenumber")
         window.content = box
         window.show()
-        info = toga.Label(self.phonenumber_data())
+        data, city = self.phonenumber_data()
+        info = toga.Label(f"{data}")
+        info2 = toga.Label(f"{city}")
         box.add(info)
+        box.add(info2)
 
 
 def main():
