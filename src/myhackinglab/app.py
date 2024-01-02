@@ -39,7 +39,7 @@ class MyHackingLab(toga.App):
         window.content = box
         window.show()
         self.number = toga.TextInput(placeholder="Phonenumber (international)")
-        checkbutton = toga.Button(text="Check",on_press=self.phonenumber_screen)
+        checkbutton = toga.Button(text="Check", on_press=self.phonenumber_screen)
 
         box.add(self.number)
         box.add(checkbutton)
