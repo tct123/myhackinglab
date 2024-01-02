@@ -44,16 +44,22 @@ class MyHackingLab(toga.App):
         box.add(self.number)
         box.add(checkbutton)
 
-    def phonenumber_data():
-        data = []
-        return data
+    def phonenumber_data(self):
+        try:
+            data = pn.parse(self.number.value, None)
+            print(data)
+            return data
+        except:
+            data = "Failed!!!"
+            return data
 
     def phonenumber_screen(self, widget):
         box = toga.Box()
         window = toga.Window("Phonenumber")
         window.content = box
         window.show()
-        p
+        info = toga.Label(self.phonenumber_data())
+        box.add(info)
 
 
 def main():
