@@ -31,9 +31,14 @@ class MyHackingLab(toga.App):
         self.exit()
     def btn_phonenumber_location(self,widget):
         box = toga.Box()
+        box.style.direction = "column"
         self.window = toga.Window(title="Phonenumber Location")
         self.window.content = box
         self.window.show()
+        number = toga.TextInput(placeholder="Phonenumber (international)")
+        checkbutton = toga.Button(text="Check")
+
+        box.add(number)
 
 
 def main():
