@@ -48,6 +48,8 @@ class MyHackingLab(toga.App):
     def phonenumber_data(self):
         try:
             data = pn.parse(self.number.value, None)
+            countrycode = data.country_code
+            print(countrycode)
             city = geocoder.description_for_number(data, "en")
             return data, city
         except:
