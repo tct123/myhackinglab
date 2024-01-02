@@ -62,8 +62,8 @@ class MyHackingLab(toga.App):
         window.content = box
         window.show()
         data, city = self.phonenumber_data()
-        info = toga.Label(f"{data}")
-        info2 = toga.Label(f"{city}")
+        info = toga.Label(f"Info: {data}")
+        info2 = toga.Label(f"City: {city}")
         box.add(info)
         box.add(info2)
 
