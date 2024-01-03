@@ -28,7 +28,7 @@ class MyHackingLab(toga.App):
         btn1 = toga.Button(
             text="Phonenumber Location", on_press=self.btn_phonenumber_location
         )
-        btn2 = toga.Button(text="Image metadata")
+        btn2 = toga.Button(text="Image metadata", on_press=self.loadimagescreen)
         main_box.add(btn1)
         main_box.add(btn2)
 
@@ -70,14 +70,29 @@ class MyHackingLab(toga.App):
         info2 = toga.Label(f"City: {city}")
         box.add(info)
         box.add(info2)
-    def loadimagescreen(self,widget):
-        box = toga.Box()
-        box.style.direction = "column"
-        window = toga.Window(title="Image metadata")
-        window.content = box
-        window.show()
-        loadbtn = toga.Button(text="Load image")
-        box.add(loadbtn)
+
+    def loadimagescreen(self, widget):
+        self.box = toga.Box()
+        self.box.style.direction = "column"
+        self.window = toga.Window(title="Image metadata")
+        self.window.content = self.box
+        self.window.show()
+        loadbtn = toga.Button(text="Load image", on_press=self.loadimage)
+        self.box.add(loadbtn)
+
+    def loadimage(self, widget):
+        file_types = ["jpg", "png"]
+        self.file = self.window.open_file_dialog(
+            title="Load image", file_types=file_types
+        )
+        self.file.on_result = self.exifscreen
+
+    def exifscreen(self, widget):
+        self.box = toga.Box()
+        self.box.style.direction = "column"
+        self.window = toga.Window(title="Image metadata")
+        self.window.content = self.box
+        self.window.show()
 
 
 def main():
