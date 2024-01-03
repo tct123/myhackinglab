@@ -46,6 +46,7 @@ system_requires = [
     "libcairo2-dev",
     # Needed to compile PyGObject wheel
     "libgirepository1.0-dev",
+    "python3-pil",
 ]
 
 system_runtime_requires = [
