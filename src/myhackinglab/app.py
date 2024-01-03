@@ -28,7 +28,9 @@ class MyHackingLab(toga.App):
         btn1 = toga.Button(
             text="Phonenumber Location", on_press=self.btn_phonenumber_location
         )
+        btn2 = toga.Button(text="Image metadata")
         main_box.add(btn1)
+        main_box.add(btn2)
 
     def leave(self, widget):
         self.exit()
