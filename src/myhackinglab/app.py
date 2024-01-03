@@ -70,6 +70,14 @@ class MyHackingLab(toga.App):
         info2 = toga.Label(f"City: {city}")
         box.add(info)
         box.add(info2)
+    def loadimagescreen(self,widget):
+        box = toga.Box()
+        box.style.direction = "column"
+        window = toga.Window(title="Image metadata")
+        window.content = box
+        window.show()
+        loadbtn = toga.Button(text="Load image")
+        box.add(loadbtn)
 
 
 def main():
