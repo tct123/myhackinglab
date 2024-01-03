@@ -50,7 +50,7 @@ class MyHackingLab(toga.App):
             data = pn.parse(self.number.value, None)
             countrycode = data.country_code
             print(countrycode)
-            city = geocoder.description_for_number(data, "en")
+            city = geocoder.description_for_number(f"+{countrycode}{data}", "en")
             return data, city
         except:
             data = "Failed!!!"
