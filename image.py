@@ -13,7 +13,7 @@ def get_exif(image_file_path):
         exif_table[decoded] = value
 
     gps_info = {}
-    for key in exif_table["GPSInfo"].keys():
+    for key in exif_table[1][1].keys():
         decode = GPSTAGS.get(key, key)
         gps_info[decode] = exif_table["GPSInfo"][key]
 
@@ -21,5 +21,5 @@ def get_exif(image_file_path):
 
 
 if __name__ == "__main__":
-    exif = get_exif("jester.jpg")
+    exif = get_exif("WindowsXP.jpg")
     print(exif)
