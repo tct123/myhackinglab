@@ -7,6 +7,7 @@ from toga.style.pack import COLUMN, ROW
 from toga.platform import current_platform
 import phonenumbers as pn
 from phonenumbers import geocoder
+from PIL import Image
 
 
 class MyHackingLab(toga.App):
