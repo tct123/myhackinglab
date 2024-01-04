@@ -13,9 +13,9 @@ def get_exif(image_file_path):
         exif_table[decoded] = value
 
     gps_info = {}
-    for key in exif_table['GPSInfo'].keys():
-        decode = GPSTAGS.get(key,key)
-        gps_info[decode] = exif_table['GPSInfo'][key]
+    for key in exif_table["GPSInfo"].keys():
+        decode = GPSTAGS.get(key, key)
+        gps_info[decode] = exif_table["GPSInfo"][key]
 
     return gps_info
 
