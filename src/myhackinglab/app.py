@@ -10,11 +10,13 @@ import phonenumbers as pn
 from phonenumbers import geocoder
 from PIL import Image
 import os
+from mylocale.TR import tr
 
 
 class MyHackingLab(toga.App):
     def startup(self):
-        print(self.paths.config.cwd())
+        self.translationfile = f"{self.paths.app.absolute()}/resources/localisation.csv"
+        print(self.translationfile)
         """
         Construct and show the Toga application.
 
