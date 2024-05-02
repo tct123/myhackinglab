@@ -32,9 +32,9 @@ class MyHackingLab(toga.App):
         self.main_window.show()
 
         btn1 = toga.Button(
-            text="Phonenumber Location", on_press=self.btn_phonenumber_location
+            text=tr(csv_file=self.translationfile,target_key="PHONENUMBERLOCATION"), on_press=self.btn_phonenumber_location
         )
-        btn2 = toga.Button(text="Image metadata", on_press=self.loadimagescreen)
+        btn2 = toga.Button(text=tr(csv_file=self.translationfile,target_key="IMAGEMETADATA"), on_press=self.loadimagescreen)
         main_box.add(btn1)
         main_box.add(btn2)
 
