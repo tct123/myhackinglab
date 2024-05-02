@@ -1,6 +1,7 @@
 """
 Hacking Application
 """
+
 import toga
 from toga.style import Pack
 from toga.style.pack import COLUMN, ROW
@@ -8,10 +9,12 @@ from toga.platform import current_platform
 import phonenumbers as pn
 from phonenumbers import geocoder
 from PIL import Image
+import os
 
 
 class MyHackingLab(toga.App):
     def startup(self):
+        print(self.paths.config.cwd())
         """
         Construct and show the Toga application.
 

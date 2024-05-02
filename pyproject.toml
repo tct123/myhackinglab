@@ -23,7 +23,8 @@ test_sources = [
 
 requires = [
     "phonenumbers",
-    "pillow"
+    "pillow",
+    "mylocale"
 ]
 test_requires = [
     "pytest",
