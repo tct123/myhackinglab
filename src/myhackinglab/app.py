@@ -16,7 +16,6 @@ from mylocale.TR import tr
 class MyHackingLab(toga.App):
     def startup(self):
         self.translationfile = f"{self.paths.app.absolute()}/resources/localisation.csv"
-        print(self.translationfile)
         """
         Construct and show the Toga application.
 
