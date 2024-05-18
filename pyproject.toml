@@ -33,13 +33,13 @@ test_requires = [
 [tool.briefcase.app.myhackinglab.macOS]
 universal_build = true
 requires = [
-    "toga-cocoa~=0.4.1",
+    "toga-cocoa~=0.4.4",
     "std-nslog~=1.0.0"
 ]
 
 [tool.briefcase.app.myhackinglab.linux]
 requires = [
-    "toga-gtk~=0.4.1",
+    "toga-gtk~=0.4.4",
 ]
 
 [tool.briefcase.app.myhackinglab.linux.system.debian]
@@ -154,24 +154,24 @@ flatpak_sdk = "org.gnome.Sdk"
 
 [tool.briefcase.app.myhackinglab.windows]
 requires = [
-    "toga-winforms~=0.4.1",
+    "toga-winforms~=0.4.4",
 ]
 
 # Mobile deployments
 [tool.briefcase.app.myhackinglab.iOS]
 requires = [
-    "toga-iOS~=0.4.1",
+    "toga-iOS~=0.4.4",
     "std-nslog~=1.0.0"
 ]
 
 [tool.briefcase.app.myhackinglab.android]
 requires = [
-    "toga-android~=0.4.1"
+    "toga-android~=0.4.4"
 ]
 
 # Web deployments
 [tool.briefcase.app.myhackinglab.web]
 requires = [
-    "toga-web~=0.4.1",
+    "toga-web~=0.4.4",
 ]
 style_framework = "Shoelace v2.3"
