@@ -23,7 +23,7 @@ class MyHackingLab(toga.App):
             lang = locale.getlocale()
             lang, _ = lang
         about = toga.Box(children=[toga.Label("Page 2")])
-        home = toga.Box(children=[])
+        home = toga.Box(children=[toga.Label("")])
         container = toga.OptionContainer(
             content=[
                 (
