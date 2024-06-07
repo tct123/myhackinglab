@@ -19,14 +19,23 @@ class MyHackingLab(toga.App):
             lang = str(
                 self._impl.native.getResources().getConfiguration().getLocales().get(0)
             )
-
         else:
             lang = locale.getlocale()
             lang, _ = lang
         about = toga.Box(children=[toga.Label("Page 2")])
+        home = toga.Box(children=[])
         container = toga.OptionContainer(
             content=[
-                (tr(csv_file=file, target_key="ABOUT", langcode=lang), about),
+                (
+                    tr(csv_file=file, target_key="HOME", langcode=lang),
+                    about,
+                    toga.Icon("pasta"),
+                ),
+                (
+                    tr(csv_file=file, target_key="ABOUT", langcode=lang),
+                    about,
+                    toga.Icon("pasta"),
+                ),
             ]
         )
         about.style.direction = "column"
