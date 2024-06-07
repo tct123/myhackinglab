@@ -1,7 +1,3 @@
-"""
-Hacking Application
-"""
-
 import toga
 from toga.style import Pack
 from toga.style.pack import COLUMN, ROW
@@ -27,20 +23,14 @@ class MyHackingLab(toga.App):
         else:
             lang = locale.getlocale()
             lang, _ = lang
-        """
-        Construct and show the Toga application.
-
-        Usually, you would add your application to a main content box.
-        We then create a main window (with a name matching the app), and
-        show the main window.
-        """
         about = toga.Box(children=[toga.Label("Page 2")])
         container = toga.OptionContainer(
             content=[
                 (tr(csv_file=file, target_key="ABOUT", langcode=lang), about),
             ]
         )
-
+        about.style.direction = "column"
+        container.current_tab = 0
         self.main_window = toga.MainWindow(title=self.formal_name)
         self.main_window.content = container
         self.main_window.show()
