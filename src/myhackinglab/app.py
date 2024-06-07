@@ -28,7 +28,7 @@ class MyHackingLab(toga.App):
             content=[
                 (
                     tr(csv_file=file, target_key="HOME", langcode=lang),
-                    about,
+                    home,
                     toga.Icon("pasta"),
                 ),
                 (
