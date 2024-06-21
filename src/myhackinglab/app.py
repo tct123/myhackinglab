@@ -23,7 +23,13 @@ class MyHackingLab(toga.App):
             lang = locale.getlocale()
             lang, _ = lang
         about = toga.Box(children=[toga.Label("Page 2")])
-        home = toga.Box(children=[toga.Label("")])
+        home = toga.Box(
+            children=[
+                toga.Label(
+                    tr(csv_file=file, target_key="WELCOMEMESSAGE", langcode=lang)
+                )
+            ]
+        )
         container = toga.OptionContainer(
             content=[
                 (
