@@ -1,4 +1,5 @@
 import toga
+import toga.platform
 from toga.style import Pack
 from toga.style.pack import COLUMN, ROW
 from toga.platform import current_platform
