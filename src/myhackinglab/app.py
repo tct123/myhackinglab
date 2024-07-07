@@ -6,9 +6,10 @@ import os
 from mylocale.TR import tr
 import locale
 
-# imported files
-from myhackinglab.images import *
-from myhackinglab.pn_viewer import *
+# imported
+from PIL import Image
+import phonenumbers as pn
+from phonenumbers import geocoder
 
 platform = toga.platform.current_platform
 
