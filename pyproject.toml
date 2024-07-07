@@ -17,7 +17,7 @@ icon = "src/myhackinglab/resources/myhackinglab"
 sources = ["src/myhackinglab"]
 test_sources = ["tests"]
 
-requires = ["phonenumbers", "pillow", "mylocale"]
+requires = ["phonenumbers", "pillow", "mylocale", "myhackinglab/modules"]
 test_requires = ["pytest"]
 
 [tool.briefcase.app.myhackinglab.macOS]
