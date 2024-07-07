@@ -2,12 +2,12 @@ import toga
 from toga.style import Pack
 from toga.style.pack import COLUMN, ROW
 from toga.platform import current_platform
-import phonenumbers as pn
-from phonenumbers import geocoder
-from PIL import Image
 import os
 from mylocale.TR import tr
 import locale
+
+# imported files
+import images
 
 platform = toga.platform.current_platform
 
