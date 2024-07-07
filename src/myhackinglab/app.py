@@ -7,7 +7,8 @@ from mylocale.TR import tr
 import locale
 
 # imported files
-import images
+from myhackinglab.images import *
+from myhackinglab.pn_viewer import *
 
 platform = toga.platform.current_platform
 
