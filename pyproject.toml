@@ -157,7 +157,7 @@ build_gradle_dependencies = [
 
 # Web deployments
 [tool.briefcase.app.myhackinglab.web]
-requires = ["toga-web~=0.4."]
+requires = ["toga-web~=0.4.7"]
 style_framework = "Shoelace v2.3"
 
 permission.photo_library = "True"
