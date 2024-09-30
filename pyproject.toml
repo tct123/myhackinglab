@@ -22,10 +22,10 @@ test_requires = ["pytest"]
 
 [tool.briefcase.app.myhackinglab.macOS]
 universal_build = true
-requires = ["toga-cocoa~=0.4.7", "std-nslog~=1.0.0"]
+requires = ["toga-cocoa~=0.4.7", "std-nslog~=1.0.0", "tabulate"]
 
 [tool.briefcase.app.myhackinglab.linux]
-requires = ["toga-gtk~=0.4.7"]
+requires = ["toga-gtk~=0.4.7", "tabulate"]
 
 [tool.briefcase.app.myhackinglab.linux.system.debian]
 system_requires = [
@@ -137,7 +137,7 @@ flatpak_runtime_version = "44"
 flatpak_sdk = "org.gnome.Sdk"
 
 [tool.briefcase.app.myhackinglab.windows]
-requires = ["toga-winforms~=0.4.7"]
+requires = ["toga-winforms~=0.4.7", "tabulate"]
 
 # Mobile deployments
 [tool.briefcase.app.myhackinglab.iOS]
