@@ -19,29 +19,31 @@ class MyHackingLab(toga.App):
     def startup(self):
         file = f"{self.paths.app.absolute()}/resources/localisation.csv"
         if platform == "android":
-            lang = str(
+            self.lang = str(
                 self._impl.native.getResources().getConfiguration().getLocales().get(0)
-            )
+            ).split("_")[0]
         else:
-            lang = locale.getlocale()
-            lang, _ = lang
+            self.lang = locale.getlocale()
+            self.lang, _ = self.lang
+            self.lang = self.lang.split("_")[0]
+        print(self.lang)
         about = toga.Box(children=[toga.Label("Page 2")])
         home = toga.Box(
             children=[
                 toga.Label(
-                    tr(csv_file=file, target_key="WELCOMEMESSAGE", langcode=lang)
+                    tr(csv_file=file, target_key="WELCOMEMESSAGE", langcode=self.lang)
                 )
             ]
         )
         container = toga.OptionContainer(
             content=[
                 (
-                    tr(csv_file=file, target_key="HOME", langcode=lang),
+                    tr(csv_file=file, target_key="HOME", langcode=self.lang),
                     home,
                     toga.Icon("pasta"),
                 ),
                 (
-                    tr(csv_file=file, target_key="ABOUT", langcode=lang),
+                    tr(csv_file=file, target_key="ABOUT", langcode=self.lang),
                     about,
                     toga.Icon("information"),
                 ),
