@@ -37,7 +37,7 @@ else:
     # Ausgabe der SMS-Daten in Tabellenform
     table = [[[sms["address"]], [sms["message"]]] for sms in sms_data]
     for row in table:
-        print(row[0][0],row[1][0])
+        print(row[0][0], row[1][0])
         sms_dict["address"] = row[0][0]
         sms_dict["message"] = row[1][0]
         print(sms_dict)
