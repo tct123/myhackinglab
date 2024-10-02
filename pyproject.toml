@@ -14,6 +14,8 @@ description = "Hacking Application"
 long_description = """More details about the app should go here.
 """
 icon = "src/myhackinglab/resources/myhackinglab"
+permission.photo_library = "True"
+permission.fine_location = "True"
 sources = ["src/myhackinglab"]
 test_sources = ["tests"]
 
@@ -159,6 +161,3 @@ build_gradle_dependencies = [
 [tool.briefcase.app.myhackinglab.web]
 requires = ["toga-web~=0.4.7"]
 style_framework = "Shoelace v2.3"
-
-permission.photo_library = "True"
-permission.fine_location = "True"
