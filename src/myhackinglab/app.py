@@ -28,7 +28,7 @@ class MyHackingLab(toga.App):
             self.lang, _ = self.lang
             self.lang = self.lang.split("_")[0]
         print(self.lang)
-        pn_input = toga.TextInput(placeholder=tr(csv_file=file, target_key="PNINPUT", langcode=self.lang),validators=[Number])
+        pn_input = toga.TextInput(placeholder=tr(csv_file=file, target_key="PNINPUT", langcode=self.lang))
         about = toga.Box(children=[pn_input])
         home = toga.Box(
             children=[
