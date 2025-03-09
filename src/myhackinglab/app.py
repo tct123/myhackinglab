@@ -6,6 +6,7 @@ from toga.platform import current_platform
 import os
 from mylocale.TR import tr
 import locale
+from toga.validators import Number
 
 # imported
 from PIL import Image
@@ -27,7 +28,8 @@ class MyHackingLab(toga.App):
             self.lang, _ = self.lang
             self.lang = self.lang.split("_")[0]
         print(self.lang)
-        about = toga.Box(children=[toga.Label("Page 2")])
+        pn_input = toga.TextInput(placeholder=tr(csv_file=file, target_key="PNINPUT", langcode=self.lang),validators=[Number])
+        about = toga.Box(children=[pn_input])
         home = toga.Box(
             children=[
                 toga.Label(
@@ -43,7 +45,7 @@ class MyHackingLab(toga.App):
                     toga.Icon("pasta"),
                 ),
                 (
-                    tr(csv_file=file, target_key="ABOUT", langcode=self.lang),
+                    tr(csv_file=file, target_key="PHONENUMBERPAGE", langcode=self.lang),
                     about,
                     toga.Icon("information"),
                 ),
