@@ -24,11 +24,11 @@ test_requires = ["pytest"]
 
 [tool.briefcase.app.myhackinglab.macOS]
 universal_build = true
-requires = ["toga-cocoa~=0.5.1", "std-nslog~=1.0.3", "tabulate"]
+requires = ["toga-cocoa~=0.5.2", "std-nslog~=1.0.3", "tabulate"]
 
 [tool.briefcase.app.myhackinglab.linux]
 requires = [
-    "toga-gtk~=0.5.1",
+    "toga-gtk~=0.5.2",
     # PyGObject 3.52.1 enforces a requirement on libgirepository-2.0-dev. This library
     # isn't available on Debian 12/Ubuntu 22.04. If you don't need to support those (or
     # older) releases, you can remove this version pin. See beeware/toga#3143.
@@ -153,14 +153,14 @@ flatpak_runtime_version = "48"
 flatpak_sdk = "org.gnome.Sdk"
 
 [tool.briefcase.app.myhackinglab.windows]
-requires = ["toga-winforms~=0.5.1", "tabulate"]
+requires = ["toga-winforms~=0.5.2", "tabulate"]
 
 # Mobile deployments
 [tool.briefcase.app.myhackinglab.iOS]
-requires = ["toga-iOS~=0.5.1", "std-nslog~=1.0.3", "tabulate"]
+requires = ["toga-iOS~=0.5.2", "std-nslog~=1.0.3", "tabulate"]
 
 [tool.briefcase.app.myhackinglab.android]
-requires = ["toga-android~=0.5.1"]
+requires = ["toga-android~=0.5.2"]
 
 base_theme = "Theme.Material3.DynamicColors.DayNight"
 
@@ -174,5 +174,5 @@ build_gradle_dependencies = [
 
 # Web deployments
 [tool.briefcase.app.myhackinglab.web]
-requires = ["toga-web~=0.5.1"]
+requires = ["toga-web~=0.5.2"]
 style_framework = "Shoelace v2.3"
