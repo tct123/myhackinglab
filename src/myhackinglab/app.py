@@ -4,7 +4,7 @@ from toga.style import Pack
 from toga.style.pack import COLUMN, ROW
 from toga.platform import current_platform
 import os
-from mylocale.TR import tr
+from mylocale.TR import TR
 import locale
 from toga.validators import Number
 
@@ -26,26 +26,29 @@ class MyHackingLab(toga.App):
         else:
             self.lang = locale.getlocale()
             self.lang, _ = self.lang
-            self.lang = self.lang.split("_")[0]
+            self.lang = str(self.lang.split("_")[0])
         print(self.lang)
-        pn_input = toga.TextInput(placeholder=tr(csv_file=file, target_key="PNINPUT", langcode=self.lang))
+        self.tr = TR(csv_file=file, langcode=self.lang)
+        pn_input = toga.TextInput(
+            placeholder=self.tr.tr(target_key="PNINPUT", langcode=self.lang)
+        )
         about = toga.Box(children=[pn_input])
         home = toga.Box(
             children=[
                 toga.Label(
-                    tr(csv_file=file, target_key="WELCOMEMESSAGE", langcode=self.lang)
+                    text=self.tr.tr(target_key="WELCOMEMESSAGE", langcode=self.lang)
                 )
             ]
         )
         container = toga.OptionContainer(
             content=[
                 (
-                    tr(csv_file=file, target_key="HOME", langcode=self.lang),
+                    self.tr.tr(target_key="HOME", langcode=self.lang),
                     home,
                     toga.Icon("pasta"),
                 ),
                 (
-                    tr(csv_file=file, target_key="PHONENUMBERPAGE", langcode=self.lang),
+                    self.tr.tr(target_key="PHONENUMBERPAGE", langcode=self.lang),
                     about,
                     toga.Icon("information"),
                 ),
