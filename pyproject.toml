@@ -1,4 +1,4 @@
-# This project was generated with 0.3.16 using template: https://github.com/beeware/briefcase-template@v0.3.16
+# This project was generated with 0.3.23 using template: https://github.com/beeware/briefcase-template @ v0.3.23
 [tool.briefcase]
 project_name = "My Hacking Lab"
 bundle = "de.cmg"
@@ -6,7 +6,7 @@ version = "0.0.1"
 url = "https://github.com/tct123/myhackinglab"
 license.file = "LICENSE"
 author = "tct123"
-author_email = "tct123@cmg.de"
+author_email = "42028373+tct123@users.noreply.github.com"
 
 [tool.briefcase.app.myhackinglab]
 formal_name = "My Hacking Lab"
@@ -24,28 +24,43 @@ test_requires = ["pytest"]
 
 [tool.briefcase.app.myhackinglab.macOS]
 universal_build = true
-requires = ["toga-cocoa~=0.4.7", "std-nslog~=1.0.0", "tabulate"]
+requires = ["toga-cocoa~=0.5.1", "std-nslog~=1.0.3", "tabulate"]
 
 [tool.briefcase.app.myhackinglab.linux]
-requires = ["toga-gtk~=0.4.7", "tabulate"]
+requires = [
+    "toga-gtk~=0.5.1",
+    # PyGObject 3.52.1 enforces a requirement on libgirepository-2.0-dev. This library
+    # isn't available on Debian 12/Ubuntu 22.04. If you don't need to support those (or
+    # older) releases, you can remove this version pin. See beeware/toga#3143.
+    "pygobject < 3.52.1",
+    "tabulate",
+]
 
 [tool.briefcase.app.myhackinglab.linux.system.debian]
 system_requires = [
     # Needed to compile pycairo wheel
     "libcairo2-dev",
-    # Needed to compile PyGObject wheel
+    # One of the following two packages are needed to compile PyGObject wheel. If you
+    # remove the pygobject pin in the requires list, you should also change to the
+    # version 2.0 of the girepository library. See beeware/toga#3143.
+    "python3-pil",            # Remove maybe
     "libgirepository1.0-dev",
-    "python3-pil",
+    # "libgirepository-2.0-dev",
 ]
 
 system_runtime_requires = [
     # Needed to provide GTK and its GI bindings
     "gir1.2-gtk-3.0",
+    # One of the following two packages are needed to use PyGObject at runtime. If you
+    # remove the pygobject pin in the requires list, you should also change to the
+    # version 2.0 of the girepository library. See beeware/toga#3143.
     "libgirepository-1.0-1",
+    # "libgirepository-2.0-0",
     # Dependencies that GTK looks for at runtime
     "libcanberra-gtk3-module",
     # Needed to provide WebKit2 at runtime
-    # "gir1.2-webkit2-4.0",
+    # Note: Debian 11 requires gir1.2-webkit2-4.0 instead
+    # "gir1.2-webkit2-4.1",
 ]
 
 [tool.briefcase.app.myhackinglab.linux.system.rhel]
@@ -80,12 +95,11 @@ system_runtime_requires = [
     "gtk3",
     # Needed to support Python bindings to GTK
     "gobject-introspection",
-    "typelib(Gtk)=3.0",
+    "typelib(Gtk) = 3.0",
     # Dependencies that GTK looks for at runtime
-    "libcanberra-gtk3-0",
+    "libcanberra-gtk3-module",
     # Needed to provide WebKit2 at runtime
-    # "libwebkit2gtk3",
-    # "typelib(WebKit2)",
+    # "libwebkit2gtk3", "typelib(WebKit2)",
 ]
 
 [tool.briefcase.app.myhackinglab.linux.system.arch]
@@ -116,7 +130,7 @@ system_runtime_requires = [
 ]
 
 [tool.briefcase.app.myhackinglab.linux.appimage]
-manylinux = "manylinux2014"
+manylinux = "manylinux_2_28"
 
 system_requires = [
     # Needed to compile pycairo wheel
@@ -135,29 +149,30 @@ linuxdeploy_plugins = ["DEPLOY_GTK_VERSION=3 gtk"]
 
 [tool.briefcase.app.myhackinglab.linux.flatpak]
 flatpak_runtime = "org.gnome.Platform"
-flatpak_runtime_version = "44"
+flatpak_runtime_version = "48"
 flatpak_sdk = "org.gnome.Sdk"
 
 [tool.briefcase.app.myhackinglab.windows]
-requires = ["toga-winforms~=0.4.7", "tabulate"]
+requires = ["toga-winforms~=0.5.1", "tabulate"]
 
 # Mobile deployments
 [tool.briefcase.app.myhackinglab.iOS]
-requires = ["toga-iOS~=0.4.7", "std-nslog~=1.0.0"]
+requires = ["toga-iOS~=0.5.1", "std-nslog~=1.0.3", "tabulate"]
 
 [tool.briefcase.app.myhackinglab.android]
-requires = ["toga-android~=0.4.7"]
+requires = ["toga-android~=0.5.1"]
 
 base_theme = "Theme.Material3.DynamicColors.DayNight"
 
 build_gradle_dependencies = [
-    "androidx.appcompat:appcompat:1.6.1",
-    "com.google.android.material:material:1.11.0",
+    "com.google.android.material:material:1.12.0",
     # Needed for DetailedList
-    "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0",
+    # "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0",
+    # Needed for MapView
+    # "org.osmdroid:osmdroid-android:6.1.20",
 ]
 
 # Web deployments
 [tool.briefcase.app.myhackinglab.web]
-requires = ["toga-web~=0.4.7"]
+requires = ["toga-web~=0.5.1"]
 style_framework = "Shoelace v2.3"
