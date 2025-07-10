@@ -19,6 +19,7 @@ platform = toga.platform.current_platform
 class MyHackingLab(toga.App):
     def startup(self):
         file = f"{self.paths.app.absolute()}/resources/localisation.csv"
+        print(file)
         if platform == "android":
             self.lang = str(
                 self._impl.native.getResources().getConfiguration().getLocales().get(0)
